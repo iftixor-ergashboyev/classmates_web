@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../widgets/my_snackbar.dart';
 
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     const Gap(12),
                     ClipOval(
-                      child: Image.asset("assets/images/profile.png", fit: BoxFit.cover,
+                      child: Image.asset("assets/icon/profile_icon.png", fit: BoxFit.cover,
                       height: 120, width: 120,
                       ),
                     ),
@@ -60,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       child: Column(
                         children: [
-                          const Gap(12),
+                          const Gap(20),
                           Text("Sinf haqida ma'lumot", style: GoogleFonts.poppins(
                             fontSize: 20, fontWeight: FontWeight.bold, color: CupertinoColors.systemGrey
                           )),
@@ -147,7 +148,9 @@ class _HomePageState extends State<HomePage> {
                     )),
                     const Gap(8),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        _launchInstagram();
+                      },
                       highlightColor: Colors.transparent,
                       splashColor: Colors.transparent,
                       child: Container(
@@ -166,7 +169,9 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const Gap(8),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        _launchTikTok();
+                      },
                       highlightColor: Colors.transparent,
                       splashColor: Colors.transparent,
                       child: Container(
@@ -185,7 +190,9 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const Gap(8),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        _launchTelegram();
+                      },
                       highlightColor: Colors.transparent,
                       splashColor: Colors.transparent,
                       child: Container(
@@ -213,26 +220,6 @@ class _HomePageState extends State<HomePage> {
                     const Gap(10),
                     CopyableText('+998 94 103 43 05'),
                     CopyableText("+998 50 221 01 27"),
-                    const Padding(
-                      padding: EdgeInsets.all(18.0),
-                      child: Divider(),
-                    ),
-                    Text("Rasimlar & Videolar", style: GoogleFonts.poppins(
-                      fontSize: 22, fontWeight: FontWeight.bold, color: CupertinoColors.black
-                    )),
-                    Container(
-                      width: double.infinity,
-                      height: 500,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: CupertinoColors.black,
-                      ),
-                      child: const Center(
-                        child: Icon(
-                          Icons.error, color: Colors.red,
-                        ),
-                      ),
-                    ),
                     const Padding(
                       padding: EdgeInsets.all(18.0),
                       child: Divider(),
@@ -284,17 +271,24 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 18, color: CupertinoColors.white
                     )),
                     const Gap(6),
-                    Container(
-                      width: 300,
-                      height: 70,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(18),
-                        color: CupertinoColors.activeBlue,
-                      ),
-                      child: Center(
-                        child: Text("Telegram", style: GoogleFonts.mPlusCodeLatin(
-                          color: CupertinoColors.white, fontSize: 18
-                        )),
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () {
+                        _launchDevTelegram();
+                      },
+                      child: Container(
+                        width: 300,
+                        height: 70,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(18),
+                          color: CupertinoColors.activeBlue,
+                        ),
+                        child: Center(
+                          child: Text("Telegram", style: GoogleFonts.mPlusCodeLatin(
+                            color: CupertinoColors.white, fontSize: 18
+                          )),
+                        ),
                       ),
                     ),
                     const Gap(25),
@@ -309,3 +303,40 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+void _launchInstagram() async {
+  const url = 'https://www.instagram.com/11b_classmates_team';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'not opening';
+  }
+}
+
+void _launchTikTok() async {
+  const url = 'https://www.instagram.com/11b_classmates_team';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'not opening';
+  }
+}
+
+void _launchTelegram() async {
+  const url = 'https://t.me/+d7SQKigd5GozMjVh';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'not opening';
+  }
+}
+
+void _launchDevTelegram() async {
+  const url = 'https://t.me/iftixor_ergashboyev';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'not opening';
+  }
+}
+

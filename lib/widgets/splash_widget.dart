@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:classmates_web/pages/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyWidget extends StatefulWidget {
@@ -26,17 +27,18 @@ class _MyWidgetState extends State<MyWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: CupertinoColors.black,
+        backgroundColor: CupertinoColors.white,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
-              child: Text("hello!", style: GoogleFonts.chakraPetch(
-                fontWeight: FontWeight.bold, fontSize: 22, color: CupertinoColors.white
-              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Image.asset("assets/icon/app_icon.png", fit: BoxFit.cover,height: 120, width: 120),
               ),
             ),
-            const CupertinoActivityIndicator(color: CupertinoColors.white,)
+            const Gap(10),
+            const CupertinoActivityIndicator(color: CupertinoColors.black,)
           ],
         )
     );
