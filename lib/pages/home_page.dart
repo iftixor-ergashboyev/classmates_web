@@ -314,7 +314,7 @@ void _launchInstagram() async {
 }
 
 void _launchTikTok() async {
-  const url = 'https://www.instagram.com/11b_classmates_team';
+  const url = 'https://www.tiktok.com/@11b_classmates_team?_t=8qrIFxu0BjM&_r=1';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
@@ -323,7 +323,7 @@ void _launchTikTok() async {
 }
 
 void _launchTelegram() async {
-  const url = 'https://t.me/+d7SQKigd5GozMjVh';
+  const url = 'https://t.me/+VjnlkaFrZ_thNmJh';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
